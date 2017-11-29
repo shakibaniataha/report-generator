@@ -12,9 +12,16 @@
 
     <header>
         <div id="navigation">
-            <a href="{% url 'index' %}">Home</a>
-            <a href="{% url 'signup' %}">Signup</a>
-            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'index' %}" class="left-link">Home</a>
+            {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="right-link">Login</a>
+                <span class="separator">|</span>
+                <a href="{% url 'signup' %}" class="right-link">Signup</a>
+            {% else %}
+                <a href="{% url 'logout' %}" class="right-link">Logout</a>
+                <span class="separator">|</span>
+                <span class="welcome-user">Welcome <span class="username">{{ user.username }}!</span></span>
+            {% endif %}
         </div>
     </header>
 
