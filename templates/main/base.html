@@ -1,12 +1,32 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Report Generator - {% block title %}Welcome{% endblock %}</title>
-</head>
-<body>
-    {% block body %}
 
-    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <div id="navigation">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'signup' %}">Signup</a>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </header>
+
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; Copy right by Aban-PPC</p>
+    </footer>
+
 </body>
 </html>
