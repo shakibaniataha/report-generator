@@ -8,11 +8,14 @@ from validators import validate_comma_separated
 
 
 class API(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
     bash_script = models.TextField()
     outputs_dir = models.CharField(max_length=200)
-    input_params = models.CharField(max_length=200, validators=[validate_comma_separated]) # This must be a list of comma-separated names (params) as a string
+    input_params = models.CharField(max_length=200, validators=[validate_comma_separated], blank=True) # This must be a list of comma-separated names (params) as a string
+
+    def __str__(self):
+        return self.name
 
 
 class Request(models.Model):

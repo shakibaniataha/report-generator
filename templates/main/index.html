@@ -4,5 +4,20 @@
 {% block title %}Welcome to Report Generator{% endblock %}
 
 {% block content %}
-    This is some random text<br/>
+    {% if not user.is_authenticated %}
+        <p class="big-text centralized-text">
+            Welcome! <br/>
+        </p>
+        <p class="centralized-text">
+            In order to proceed, Please Log in!
+        </p>
+
+    {% else %}
+        <label for="api-select">Please select your desired API: </label>
+        <select id="api-select">
+            {% for api in apis %}
+                <option value="{{ api.id }}">{{ api.name }}</option>
+            {% endfor %}
+        </select>
+    {% endif %}
 {% endblock %}

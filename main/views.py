@@ -4,9 +4,11 @@ from __future__ import unicode_literals
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from main.forms import SignUpForm
+from .models import API
 
 def index(request):
-    return render(request, 'main/index.html', {})
+    apis = API.objects.all()
+    return render(request, 'main/index.html', {'apis': apis})
 
 
 def signup(request):
