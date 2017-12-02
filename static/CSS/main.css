@@ -78,3 +78,11 @@ body{
     font-weight:bolder;
     font-size:xx-large;
 }
+
+.dataTables_wrapper{
+    margin-top: 80px;
+}
+
+table.dataTable tbody td{
+    text-align: center;
+}

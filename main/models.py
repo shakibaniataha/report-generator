@@ -26,7 +26,10 @@ class Request(models.Model):
     )
 
     api_id = models.ForeignKey(API)
-    input_params = JSONField()
+    input_params = JSONField(blank=True)
     owner = models.ForeignKey(User, null=True)
     preferred_run_date = models.DateField(default=date.today)
     status = models.CharField(max_length=20, choices=REQUEST_STATUS, null=True)
+
+    def __str__(self):
+        return str(self.id) + ": " + self.api_id.name

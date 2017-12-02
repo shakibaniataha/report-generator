@@ -15,9 +15,21 @@
     {% else %}
         <label for="api-select">Please select your desired API: </label>
         <select id="api-select">
+            <option value="None">---------------</option>
             {% for api in apis %}
                 <option value="{{ api.id }}">{{ api.name }}</option>
             {% endfor %}
         </select>
+        <table id="requests" class="display" hidden>
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>API Name</th>
+                    <th>Preferred Run Date</th>
+                    <th>Parameters</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+        </table>
     {% endif %}
 {% endblock %}

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>Report Generator - {% block title %}Welcome{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}">
+    <link rel="stylesheet" href="{% static 'DataTables/datatables.min.css' %}"/>
 </head>
 
 <body>
@@ -37,3 +38,7 @@
 
 </body>
 </html>
+
+<script type="text/javascript" src="{% static 'JS/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'JS/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'DataTables/datatables.min.js'%}"></script>
