@@ -20,9 +20,10 @@ $("#api-select").on('change', function(){
                         { "mDataProp": "params" },
                         { "mDataProp": "status" },
                         {
-                            data: 'id',
-                            render: function (data) {
-                                return '<input type="button" id="'+data+'" value="Run" class="script-run-btn"/>';
+                            render: function (a, b, row_data) {
+                                return row_data['status'] === 'scheduled' ?
+                                    '<input type="button" id="'+row_data['id']+'" value="Run" class="script-run-btn"/>'
+                                    : '';
                             }
                         }
 
@@ -33,7 +34,8 @@ $("#api-select").on('change', function(){
         })
         .done(function(){
             $('.script-run-btn').on('click', function(){
-                alert(this.id);
+
+                // alert(this.id);
             });
         });
     }
