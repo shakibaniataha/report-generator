@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from main.forms import SignUpForm
 from .models import API
 from django.http import JsonResponse
+from main.tasks import test
 import json
 
 def index(request):
@@ -45,3 +46,10 @@ def ajaxGetAPIRequests(request):
         })
 
     return JsonResponse(response, safe=False)
+
+
+def ajaxRunRequest(request):
+    test.delay('This is just a test!')
+
+    return JsonResponse({"message":"success"}, safe=False)
+

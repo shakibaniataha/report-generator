@@ -34,8 +34,16 @@ $("#api-select").on('change', function(){
         })
         .done(function(){
             $('.script-run-btn').on('click', function(){
-
-                // alert(this.id);
+                $.ajax({
+                    url: '/runRequest/',
+                    data: {
+                        'request_id': this.id
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        alert(JSON.stringify(result))
+                    }
+                });
             });
         });
     }
