@@ -19,6 +19,7 @@
                 <span class="separator">|</span>
                 <a href="{% url 'signup' %}" class="right-link">Signup</a>
             {% else %}
+                <a href="{% url 'add_request' %}" class="left-link">Add Request</a>
                 <a href="{% url 'logout' %}" class="right-link">Logout</a>
                 <span class="separator">|</span>
                 <span class="welcome-user">Welcome <span class="username">{{ user.username }}!</span></span>

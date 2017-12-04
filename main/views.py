@@ -7,6 +7,7 @@ from main.forms import SignUpForm
 from .models import API
 from django.http import JsonResponse
 from main.tasks import test
+from django.contrib.auth.decorators import login_required
 import json
 
 def index(request):
@@ -27,6 +28,11 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form': form})
+
+
+@login_required
+def add_request(request):
+    return render(request, 'main/add_request.html')
 
 
 def ajaxGetAPIRequests(request):
